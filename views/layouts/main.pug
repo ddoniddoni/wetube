@@ -3,9 +3,11 @@ html
     head
         <script src="https://kit.fontawesome.com/5d7417fc29.js" crossorigin="anonymous"></script>
         title #{pageTitle} | #{siteName}
+        link(rel="stylesheet", href="/static/styles.css")
     body
         include ../partials/header
         main
             block content
         include ../partials/footer
+        script(src="/static/main.js")
             
