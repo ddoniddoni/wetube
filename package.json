@@ -36,7 +36,7 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static'",
     "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
     "bulid:assets": "WEBPACK_ENV=production webpack",
     "tunnel": "ngrok http 4000"
