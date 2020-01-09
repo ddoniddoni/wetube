@@ -35,9 +35,11 @@ passport.use(
 );
 
 // 더 공부해야할 부분
+// 위에 code를 사용하면 github는 로그인 잘 되지만 editProfile이 잘 안된다.
+// 아래 code를 사용하면 editProfile은 잘 되지만 github로그인이 안된다.
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user, done) => done(null, user));
+// passport.serializeUser((user, done) => done(null, user));
+// passport.deserializeUser((user, done) => done(null, user));
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
