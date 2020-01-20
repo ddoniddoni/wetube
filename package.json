@@ -9,6 +9,7 @@
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.4",
     "autoprefixer": "^9.7.3",
+    "aws-sdk": "^2.606.0",
     "axios": "^0.19.1",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
@@ -20,14 +21,17 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "get-blob-duration": "^1.1.0",
     "helmet": "^3.21.2",
     "mongoose": "^5.7.14",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "node-sass": "^4.13.0",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
     "passport-github": "^1.1.0",
+    "passport-kakao": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "postcss-loader": "^3.0.0",
@@ -37,17 +41,23 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static'",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "bulid:assets": "WEBPACK_ENV=production webpack",
-    "tunnel": "ngrok http 4000"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build",
+    "copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rd /s /q build",
+    "tunnel": "ngrok http 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
-    "nodemon": "^2.0.1",
+    "@babel/cli": "^7.8.3",
     "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-import": "^2.19.1"
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.1"
   }
 }

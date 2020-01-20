@@ -1,3 +1,5 @@
+// import getBlobDuration from "get-blob-duration";
+
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
 const playBtn = document.getElementById("jsPlayButton");
@@ -94,6 +96,16 @@ const formatDate = seconds => {
 function getCurrentTime() {
   currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
+
+// 스트리밍 파일 업로드시 재생시간을 불러오기 위한 Blob..
+// 하지만 지금 webpack 오류로 인해 주석처리
+// async function setTotalTime() {
+//   const blob = await fetch(videoPlayer.src).then(response => response.blob());
+//   const duration = await getBlobDuration(blob);
+//   const totalTimeString = formatDate(duration);
+//   totalTime.innerHTML = totalTimeString;
+//   setInterval(getCurrentTime, 1000);
+// }
 
 function setTotalTime() {
   const totalTimeString = formatDate(videoPlayer.duration);
