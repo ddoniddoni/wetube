@@ -17,9 +17,9 @@ passport.use(
     {
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
-      callbackURL:
-        `http://localhost:4000${routes.githubCallback}` ||
-        `https://dontube.herokuapp.com/${routes.githubCallback}`
+      callbackURL: process.env.PRODUCTION
+        ? `http://localhost:4000${routes.githubCallback}`
+        : `https://dontube.herokuapp.com/${routes.githubCallback}`
     },
     githubLoginCallback
   )
@@ -30,9 +30,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL:
-        `https://12d3038c.ngrok.io${routes.facebookCallback}` ||
-        `https://dontube.herokuapp.com/${routes.facebookCallback}`,
+      callbackURL: `https://dontube.herokuapp.com/${routes.facebookCallback}`,
       profileFields: ["id", "displayName", "photos", "email"],
       scope: ["public_profile", "email"]
     },
@@ -44,9 +42,9 @@ passport.use(
   new KakaoStrategy(
     {
       clientID: process.env.KAKAO_ID,
-      callbackURL:
-        `http://localhost:4000${routes.kakaoCallback}` ||
-        `https://dontube.herokuapp.com/${routes.kakaoCallback}`
+      callbackURL: process.env.PRODUCTION
+        ? `http://localhost:4000${routes.kakaoCallback}`
+        : `https://dontube.herokuapp.com/${routes.kakaoCallback}`
     },
     kakaoLoginCallback
   )
