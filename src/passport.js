@@ -18,8 +18,8 @@ passport.use(
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
       callbackURL: process.env.PRODUCTION
-        ? `http://localhost:4000${routes.githubCallback}`
-        : `https://dontube.herokuapp.com${routes.githubCallback}`
+        ? `https://dontube.herokuapp.com${routes.githubCallback}`
+        : `http://localhost:4000${routes.githubCallback}`
     },
     githubLoginCallback
   )
@@ -43,8 +43,8 @@ passport.use(
     {
       clientID: process.env.KAKAO_ID,
       callbackURL: process.env.PRODUCTION
-        ? `http://localhost:4000${routes.kakaoCallback}`
-        : `https://dontube.herokuapp.com${routes.kakaoCallback}`
+        ? `https://dontube.herokuapp.com${routes.kakaoCallback}`
+        : `http://localhost:4000${routes.kakaoCallback}`
     },
     kakaoLoginCallback
   )
