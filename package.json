@@ -8,6 +8,7 @@
     "@babel/node": "^7.7.4",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.4",
+    "@babel/cli": "^7.8.3",
     "autoprefixer": "^9.7.3",
     "aws-sdk": "^2.606.0",
     "axios": "^0.19.1",
@@ -53,7 +54,6 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
     "eslint": "^6.7.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.7.0",
