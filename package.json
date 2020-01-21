@@ -4,11 +4,11 @@
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "author": "DDoni",
   "dependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.7.4",
     "@babel/node": "^7.7.4",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.4",
-    "@babel/cli": "^7.8.3",
     "autoprefixer": "^9.7.3",
     "aws-sdk": "^2.606.0",
     "axios": "^0.19.1",
@@ -50,7 +50,7 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "tunnel": "ngrok http 4000",
-    "start": "node build/init.js",
+    "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
