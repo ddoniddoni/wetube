@@ -1,10 +1,28 @@
+include ../mixins/message
+
 doctype html
 html
     head
         <script src="https://kit.fontawesome.com/5d7417fc29.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="/static/styles.css")
     body
+        if messages.error
+            +message({
+                type:'error',
+                text:messages.error
+            })
+        else if messages.info
+            +message({
+                type:'info',
+                text:messages.info
+            })
+        else if messages.success
+            +message({
+                type:'success',
+                text:messages.success
+            })
         include ../partials/header
         main
             block content
